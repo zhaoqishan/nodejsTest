@@ -4,5 +4,7 @@
 
 function add(a,b)
 {
-   $('div').text( a+b);
+   $('#parent> div').text( a+b);
+
+
 }
