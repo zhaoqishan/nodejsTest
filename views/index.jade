@@ -1,9 +1,15 @@
 extends layout
 
+block page
+  -var menu='index'
 block content
-  h1= title
-  p Welcome to #{title}
-  div#parent
-    div(class="col-sm-2",style="border:1px solid red;") sssss
-  button(onclick='add(1,2)') ddddt
+  if(articles.length===0)
+    | There's no published content yet.
+    a(href="/login") login
+    | to post and publish
+    else
+     each article,index in articles
+       div
+         h2
+         a(href="articles/#{article.slug}")=article.title
 

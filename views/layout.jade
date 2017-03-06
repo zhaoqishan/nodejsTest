@@ -8,5 +8,26 @@ html
         script(type="text/javascript",src="/javascripts/bower_components/jquery/dist/jquery.min.js")
         script(type='text/javascript',src='/javascripts/test.js')
     body
+        #wrap
+            .container
+                h1.page-header=appTitle
+                p.lead welcome to example from express.js
+                a(href="http://kjt.com")@aza
+                |. plaase enjoy.
+                block page
+                    block header
+                        div
+                            //include includes/menu
+                    block alert
+                        div.alert.alert-warning.hidden
+                    .content
+                        block content
 
-block content
+
+                    block footer
+                        footer
+                        .container
+                            p
+                            | copyright 2014|issues? sumit to
+                            a(href="kjt.com") github
+                            |.
