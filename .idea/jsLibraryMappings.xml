@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{git_nodejsTest/node_modules}" />
+    <file url="file://$PROJECT_DIR$" libraries="{git_nodejsTest node_modules}" />
     <file url="PROJECT" libraries="{jquery-DefinitelyTyped, mime-DefinitelyTyped}" />
-    <includedPredefinedLibrary name="git_nodejsTest/node_modules" />
   </component>
 </project>
