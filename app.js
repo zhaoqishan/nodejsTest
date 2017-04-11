@@ -4,7 +4,7 @@ var express = require('express'),
     path = require('path'),
     mongoskin = require('mongoskin'),
     dbUrl = process.env.MONGOHQ_URL || 'mongodb://@localhost:27017/blog',
-    db = mongoskin.db(dbUrl, {safe: true}),
+    db = mongoskin.db(dbUrl),
     collections = {
       articles: db.collection('articles'),
       users: db.collection('users')
@@ -32,7 +32,7 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended:false}));
 app.use(methodOverride());
 app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -56,7 +56,7 @@ app.get('/articles/:slug', routes.article.show);
 app.get('/api/articles', routes.article.list);
 app.post('/api/articles', routes.article.add);
 app.put('/api/articles/:id', routes.article.edit);
-app.del('/api/articles/:id', routes.article.del);
+app.delete('/api/articles/:id', routes.article.del);
 
 
 
@@ -77,11 +77,8 @@ var boot = function () {
 var shutdown = function() {
   server.close();
 }
-if (require.main === module) {
-  boot();
-} else {
-  console.info('Running app as a module')
+
   exports.boot = boot;
   exports.shutdown = shutdown;
   exports.port = app.get('port');
-}
+
