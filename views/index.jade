@@ -1,8 +1,10 @@
 extends layout
 
-
+div
+    block menu
+             -var menu='index'
     block content
-            -var menu='index'
+
       if(articles.length===0)
         | There's no published content yet.
         a(href="/login") login
