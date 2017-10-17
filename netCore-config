@@ -1,0 +1,5 @@
+mysql:
+  client:
+    database: dev
+    username: root
+    password: wangm6492178
